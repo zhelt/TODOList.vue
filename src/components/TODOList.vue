@@ -12,7 +12,7 @@
       <input type="checkbox" value="Статус" v-model="newTask.done">
       <input @click="addTask()" :disabled="newTask.title.length < 1" type="button" value="Добавить">
     </div>
-    <input @click="tasks = []" type="button" value="Очистить задачи">
+    <input @click="tasks = []" :disabled="tasks.length < 1" type="button" value="Очистить задачи">
     <div class="task" v-for="(task) in tasks" v-bind:key="task.id">
       <input v-model="task.title" type="text">
       <input v-model="task.hours" type="number" min="0">
