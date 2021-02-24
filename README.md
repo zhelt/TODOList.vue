@@ -7,7 +7,11 @@ yarn install
 
 ### Compiles and hot-reloads for development
 ```
-yarn serve
+yarn serve / yarn start
+```
+or
+```
+npm start
 ```
 
 ### Compiles and minifies for production
