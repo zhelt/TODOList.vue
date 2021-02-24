@@ -5,29 +5,26 @@
     <p>Кол-во выполеннных задач: {{ doneTasksCount }} </p>
     <p>Кол-во невыполеннных задач: {{ undoneTasksCount }} </p>
 
-    <form>
+    <div class="TaskForm">
       <input type="text" v-model="newTask.title">
       <input type="number" v-model="newTask.hours" min="0">
       <label>Статус:</label>
-      <input type="checkbox" v-model="newTask.done">
+      <input type="checkbox" value="Статус" v-model="newTask.done">
       <input @click="addTask()" :disabled="newTask.title.length < 1" type="button" value="Добавить">
-    </form>
+    </div>
     <input @click="tasks = []" type="button" value="Очистить задачи">
-    <ul>
-      <li v-for="task in tasks" :key="task.id">
-        <div class="task">
-          <input v-model="task.title" type="text">
-          <input v-model="task.hours" type="number" min="0">
-          <input v-model="task.done" type="checkbox">
-          <button @click="deleteTask(task.id)">Delete</button>
-        </div>
-      </li>
-    </ul>
+    <div class="task" v-for="(task) in tasks" v-bind:key="task.id">
+      <input v-model="task.title" type="text">
+      <input v-model="task.hours" type="number" min="0">
+      <input v-model="task.done" type="checkbox">
+      <button @click="deleteTask(task.id)">Delete</button>
+    </div>
 
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'TODOList',
   data () {
@@ -97,5 +94,19 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+input {
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+}
+
+
+.TaskForm {
+  display: grid;
+  width: 33%;
+  margin: auto;
 }
 </style>
