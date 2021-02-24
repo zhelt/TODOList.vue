@@ -1,5 +1,9 @@
 # todolist
 
+
+## Simple TODOList VUE app.
+
+
 ## Project setup
 ```
 yarn install
